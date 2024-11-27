@@ -1,0 +1,59 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox
+import random
+from PIL import Image, ImageTk
+root=tk.Tk()
+root.geometry("500x500")
+
+f1=tk.Frame(root,relief="groove",bd=2)
+f1.pack(expand=True)
+
+image = Image.open('icon.png').resize((100,100))
+tk_image = ImageTk.PhotoImage(image)
+label = tk.Label(root, image=tk_image)
+
+#Form đăng kí
+lb1=tk.Label(f1,text="Form Đăng kí", font=("Arial",18,"bold"))
+lb1.grid(row=0,column=0,columnspan=2,sticky="we")
+
+#Họ và tên
+lb2=tk.Label(f1,text="Họ và tên:")
+lb2.grid(row=1,column=0)
+en2=tk.Entry(f1)
+en2.grid(row=1,column=1,padx=10,pady=10)
+#Địa chỉ
+lb3=tk.Label(f1,text="Địa chỉ:")
+lb3.grid(row=1,column=2,padx=10)
+en3=tk.Entry(f1)
+en3.grid(row=1,column=3,columnspan=2,sticky="we")
+#Ngày sinh
+lb4=tk.Label(f1,text="Ngày sinh:")
+lb4.grid(row=2,column=0)
+en4=tk.Entry(f1)
+en4.grid(row=2,column=1,padx=10,pady=10)
+#Email
+lb5=tk.Label(f1,text="Email:")
+lb5.grid(row=2,column=2,padx=10)
+en5=tk.Entry(f1)
+en5.grid(row=2,column=3,columnspan=2,sticky="we")
+#Số điện thoại
+lb6=tk.Label(f1,text="Số điện thoại:")
+lb6.grid(row=3,column=2,padx=10)
+en6=tk.Entry(f1)
+en6.grid(row=3,column=3,columnspan=2,sticky="we")
+#Quốc tịch
+lb7=tk.Label(f1,text="Quốc tịch:")
+lb7.grid(row=3,column=0,padx=10)
+combobox = ttk.Combobox(f1, values=["Việt Nam","Mỹ","Trung Quốc","Nhật Bản"], state='readonly')
+combobox.grid(row=3, column=1)
+
+#Nút Register
+but1=tk.Button(f1,text="Register")
+but1.grid(row=4,column=1,columnspan=2)
+#Nút Quit
+but2=tk.Button(f1,text="Quit")
+but2.grid(row=4,column=2,columnspan=2)
+
+
+root.mainloop()
